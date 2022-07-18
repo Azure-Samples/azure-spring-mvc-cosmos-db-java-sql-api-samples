@@ -1,57 +1,40 @@
-# Project Name
-
-(short, 1-3 sentenced, description of the project)
+# Spring MVC with Azure Cosmos DB - sample
+Sample e-commerce application built with Spring Boot (MVC on servlet stack) and "Spring Data Cosmos" client library for Azure Cosmos DB SQL API.
 
 ## Features
 
-This project framework provides the following features:
+- @Query annotation for finder method
+- Collection configuration with annotations(Indexing, RUs).
+- Multiple database and collections accessed from single application.
+- Auto generating UUID based IDs.
+- Spring Data Repository pattern.
+- Enabling cosmos request diagnostics
+- Directly using CosmosAsynClient from a spring application.
+- Infinite scroll with JQuery.
 
-* Feature 1
-* Feature 2
-* ...
+## Getting started
 
-## Getting Started
+### Pre-requisites
 
-### Prerequisites
-
-(ideally very short, if any)
-
-- OS
-- Library version
-- ...
+- `Java Development Kit 8`. 
+- An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). Alternatively, you can use the [Azure Cosmos DB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator) for development and testing. As emulator https certificate is self signed, you need to import its certificate to java trusted cert store, [explained here](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator-export-ssl-certificates).
+- Maven.
+- (Optional) SLF4J is a logging facade.
+- (Optional) [SLF4J binding](http://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
+- Clone the repo.
 
 ### Installation
 
-(ideally very short)
+1. Update the cosmos DB endpoint, key and locations information in application.properties
+2. mvn spring-boot:run from the project base
+3. On startup the application creates 2 databases and 4 collections between them.
+4. Access the WebApp at http://localhost:81/ebooks/index
+5. You will have to create user account to access the application functionality. The registration process asks for email ID, which will be used as the login ID. Any email address is fine as long as it has a valid format.
+6. If you prefer docker:
+    - mvn package
+    - docker build -t <YOUR REPO>/ebookstorespringbootmvc .
+    - docker run -p 80:80 -e azure.cosmos.bookstore.uri=<COSMOS_ENDPOINT> -e azure.cosmos.bookstore.key=<COSMOS_KEY> -t <YOUR REPO>/ebookstorespringbootmvc
+    - Access the WebApp at http://localhost:81/ebooks/index 
+1. This is the home page
+     ![Image](BookStore.png)
 
-- npm install [package name]
-- mvn install
-- ...
-
-### Quickstart
-(Add steps to get up and running quickly)
-
-1. git clone [repository clone url]
-2. cd [repository name]
-3. ...
-
-
-## Demo
-
-A demo app is included to show how to use the project.
-
-To run the demo, follow these steps:
-
-(Add steps to start up the demo)
-
-1.
-2.
-3.
-
-## Resources
-
-(Any additional resources or related projects)
-
-- Link to supporting information
-- Link to similar sample
-- ...
