@@ -1,6 +1,8 @@
 # Spring MVC with Azure Cosmos DB - sample
 Sample e-commerce application built with Spring Boot (MVC on servlet stack) and "Spring Data Cosmos" client library for Azure Cosmos DB SQL API.
 
+![Image](BookStore.png)
+
 ## Features
 
 - @Query annotation for finder method
@@ -34,7 +36,4 @@ Sample e-commerce application built with Spring Boot (MVC on servlet stack) and 
     - mvn package
     - docker build -t <YOUR REPO>/ebookstorespringbootmvc .
     - docker run -p 80:80 -e azure.cosmos.bookstore.uri=<COSMOS_ENDPOINT> -e azure.cosmos.bookstore.key=<COSMOS_KEY> -t <YOUR REPO>/ebookstorespringbootmvc
-    - Access the WebApp at http://localhost:81/ebooks/index 
-1. This is the home page
-     ![Image](BookStore.png)
-
+    - Access the WebApp at http://localhost:81/ebooks/index
