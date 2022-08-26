@@ -40,6 +40,22 @@ public class BookRepositoryAsync {
                 .blockFirst();
     }
 
+    public Response getBooks(int preferredPageSize, int pagesToReturn, String category) {
+        CosmosQueryRequestOptions queryOptions = new CosmosQueryRequestOptions();
+        String query = "SELECT * FROM Book where Book.category = '"+category+"'";
+        CosmosPagedFlux<Book> pagedFluxResponse =
+                getAsyncContainer()
+                        .queryItems(
+                                query, queryOptions, Book.class);
+        return pagedFluxResponse
+                .byPage(preferredPageSize)
+                .take(pagesToReturn)
+                .map(page -> {
+                    return new Response(page.getContinuationToken(), page.getResults());
+                })
+                .blockFirst();
+    }    
+
 
     public Response getBooks(String continuationToken, int preferredPageSize, int pagesToReturn) {
         CosmosQueryRequestOptions queryOptions = new CosmosQueryRequestOptions();
