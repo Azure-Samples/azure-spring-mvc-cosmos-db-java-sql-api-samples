@@ -13,6 +13,7 @@ Sample e-commerce application built with Spring Boot (MVC on servlet stack) and 
 - Enabling cosmos request diagnostics
 - Directly using CosmosAsynClient from a spring application.
 - Infinite scroll with JQuery.
+- Filter by category.
 
 ## Getting started
 
