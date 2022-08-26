@@ -98,21 +98,24 @@
                             class="fa fa-home fa-2x text-warning"></i> Book Store</a>
                 </div>
                 <div class="col-lg-11-24 col-sm-8">
-                    <form action="#" class="py-1">
-                        <!-- <div class="input-group w-100">
-                            <select class="custom-select" name="category_name">
-                                <option value="">All types</option>
-                                <option value="">Special</option>
-                                <option value="">Top rated</option>
-                                <option value="">Latest</option>
+                    <form action="#" class="py-1" id="category" modelAttribute="category">
+                         <div class="input-group 100">
+                            <!-- filer by category -->
+                            <select class="custom-select" name="category_name" onchange="this.form.submit()">
+                                <option>Please select...</option>
+                                <option value="All types">All types</option>
+                                <option value="Databases">Databases</option>
+                                <option value="Programming Languages">Programming Languages</option>
+                                <option value="Software Architecture">Software Architecture</option>
+                                <option value="Software Design">Software Design</option>
+                                <option value="Computer Networking">Computer Networking</option>
+                                <option value="Containers">Containers</option>
+                                <option value="Programming Algorithms">Programming Algorithms</option>
+                                <option value="Security">Security</option>
+                                <option value="Messaging Systems">Messaging Systems</option>
+                                <option value="Containers">Containers</option>
                             </select>
-                            <input class="form-control" placeholder="tobe implemented" style="width:50%;" type="text">
-                            <div class="input-group-append">
-                                <button class="btn btn-warning" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div> -->
+                        </div>
                     </form> <!-- search-wrap .end// -->
                 </div> <!-- col.// -->
 
